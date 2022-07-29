@@ -1,24 +1,34 @@
 import React from 'react'
 import styled from 'styled-components';
-
-const Section = () => {
+import Fade from 'react-reveal/Fade';
+const Section = (props) => {
   return (
-    <Wrap>
-      <ItemText>
-          <h1>Model S</h1>
-          <p>Functional components in React JS</p>
-      </ItemText>
+    <Wrap bgImg={props.backgroundImg}>
+      <Fade bottom>
+        <ItemText>
+          <h1>{props.title}</h1>
+          <p>{props.description}</p>
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>
-            Custom Order
-          </LeftButton>
-          <RightButton>
-            Existing Inventory
-          </RightButton>
-        </ButtonGroup>
-        <DownArrow src="/images/down-arrow.svg" />
+        <Fade bottom>
+          <ButtonGroup>
+            {props.LeftBtn &&
+              <LeftButton>
+                {props.LeftBtn}
+              </LeftButton>
+            }
+            {props.RightBtn &&
+              <RightButton>
+                {props.RightBtn}
+              </RightButton>
+            }
+          </ButtonGroup>
+          <DownArrow src="/images/down-arrow.svg" />
+          </Fade>
       </Buttons>
+
+      
     </Wrap>
   )
 }
@@ -28,7 +38,7 @@ export default Section
 const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url('/images/model-s.jpg');
+  //background-image: url('/images/model-s.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,16 +46,17 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: ${pr => `url("/images/${pr.bgImg}")`};
 `;
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  z-index: -1;
 `;
 
 const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 30px;
-    max-width: ;
     @media (max-width:768px) {
       flex-direction: column;
     }
