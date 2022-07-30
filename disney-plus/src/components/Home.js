@@ -5,7 +5,7 @@ import Viewers from './Viewers';
 const Home = () => {
   return (
     <Container>
-      <br />
+      {/* <br /> */}
       <ImgSlider />
       <Viewers />
     </Container>
