@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const Detail = () => {
   return (
     <Container>
-        <BackgroundImg>
+        {/* <BackgroundImg>
             <img src="./images/aldin_post.png" alt="" />
-        </BackgroundImg>
+        </BackgroundImg> */}
         <ImageTitle>
             <img src="./images/aladdin5.png" alt="" />
         </ImageTitle>
@@ -42,30 +42,47 @@ const Container = styled.div`
   min-height: calc(100vh - 70px);
   padding: 0 calc(3.5vw + 5px);
   position: relative;
-`;
-const BackgroundImg = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  opacity: 0.7;
+  overflow-x: hidden;
 
 
-  img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
+  &:before {
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("./images/aldin_post.png");
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      opacity: 0.8;
   }
 `;
+// const BackgroundImg = styled.div`
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   z-index: -1;
+//   opacity: 0.7;
+
+
+//   img{
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// `;
 
 const ImageTitle = styled.div`
   height: 30vh;
   min-height: 200px;
   width: 30vw;
   min-width: 230px;
+  margin-top: 60px;
 
 
 
@@ -179,7 +196,14 @@ const Description = styled.div`
   padding: 16px 0px;
   color: rgb(249, 249, 249);
   margin-top: 10px;
+  max-width: 500px;
+  font-weight: 500;
+
+
   @media (max-width: 768px) {
     font-size: 14px;
+  }
+  @media (min-width: 900px) {
+    font-size: 18px;
   }
 `;
