@@ -5,7 +5,7 @@ const Header = () => {
     <Nav>
         <Logo src="./images/logo.svg" />
         <NavMenu>
-            <a href="#">
+            <a href="/">
                 <img src="./images/home-icon.svg" alt="" />
                 <span>Home</span>
             </a>
@@ -21,7 +21,7 @@ const Header = () => {
                 <img src="./images/original-icon.svg" alt="" />
                 <span>original</span>
             </a>
-            <a href="#">
+            <a href="/detail">
               <img src="/images/movie-icon.svg" alt="MOVIES" />
               <span>movie</span>
             </a>
